@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;500&display=swap" rel="stylesheet">
+    <title>Carrito de compra</title>
+    <style>
+        :root{
+            --blanco:white;
+            --negro:black;
+            --verde-oscuro:#006414;
+            --verde-medio:#009929;
+            --verde-claro:#5ccb5f;
+            --rojo-oscuro:#e80729;
+            --rojo-claro:#ef2947;
+            --amarillo-quemado:#efa229;
+            --amarillo-claro:#f3b24a;
+            --sm:400;
+            --lg:700;
+        }
+        body{
+            margin:0;
+            font-family: 'Work Sans', sans-serif;
+            width: 100%;
+        }
+
+        .titulo-cesta{
+            width: 100%;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+        }
+        .titulo-cesta h3{
+            font-size: 45px;
+            margin: 0;
+            padding-top: 20px;
+        }
+        .pricipal{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        .articulos{
+            width: 65%;
+        }
+        .cantidad-articulos{
+            display: flex;
+        }
+        .cantidad-articulos p{
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .cantidad-articulos p:nth-child(1){
+            margin-left: 20px;
+            margin-right: 5px;
+        }
+        .resumen-pedido{
+            width: 35%;
+        }
+        .lista-articulos{
+            display: flex;
+            flex-direction: column;
+        }
+        .item{
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            border-top: solid 1px var(--negro);
+        }
+        .imagen-producto{
+            width: 18%;
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .imagen-producto img{
+            width: 100%;
+            height:100%;
+            object-fit: cover;
+        }
+        .nombre{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 18px;
+            width: 22%;
+            justify-content: space-evenly;
+        }
+        .nombre-title{
+            font-weight: var(--lg);
+        }
+        .nombre-title p{
+            line-height : 24px;
+            word-wrap: break-word;
+        }
+        .descrip-title{
+            font-weight: var(--sm);
+        }
+        .descrip-title p{
+            margin: 0 0 6px;
+        }
+        .cantidad{
+            width: 26%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 12px;
+        }
+        .cantidad p{
+            font-weight: var(--sm);
+        }
+        .input-number{
+            height: 45px;
+            margin-left: 30px;
+            width: 85px;
+            border: solid 1px var(--negro);
+        }
+        .precio{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20%;
+        }
+        .basurita{
+            width: 16%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .resumen-pedido{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .subtotal{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+<body>
+    <header class="titulo-cesta">
+        <h3>
+            Esta es tu cesta de la compra
+        </h3>
+    </header>
+    <main class="pricipal">
+        <section class="articulos">
+            <div class="cantidad-articulos">
+                <p>3</p>
+                <p>articulos</p>
+            </div>
+            <div class="lista-articulos">
+                <div class="item">
+                    <figure class="imagen-producto">
+                        <img src="./src/1.jpg" alt="no se ve">
+                    </figure>
+                    <div class="nombre">
+                        <div class="nombre-title">
+                            <p>PARCHES SUPERTONIFICANTES PARA CONTORNO DE OJOS</p>
+                        </div>
+                        <div class="descrip-title">
+                            <p>Talla: 100</p>
+                            <p>Marca: Terra verde</p>
+                        </div>
+                    </div>
+                    <div class="cantidad">
+                        <p>
+                            cantidad
+                        </p>
+                        <input class="input-number" type="number">
+                    </div>
+                    <div class="precio">
+                        <p>15.50$</p>
+                    </div>
+                    <figure class="basurita">
+                        <a href="">
+                            <img src="./src/trash.png" alt="">
+                        </a>
+                    </figure>
+                </div>
+                <div class="item">
+                    <figure class="imagen-producto">
+                        <img src="./src/1.jpg" alt="no se ve">
+                    </figure>
+                    <div class="nombre">
+                        <div class="nombre-title">
+                            <p>PARCHES SUPERTONIFICANTES PARA CONTORNO DE OJOS</p>
+                        </div>
+                        <div class="descrip-title">
+                            <p>Talla: 100</p>
+                            <p>Marca: Terra verde</p>
+                        </div>
+                    </div>
+                    <div class="cantidad">
+                        <p>
+                            cantidad
+                        </p>
+                        <input class="input-number" type="number">
+                    </div>
+                    <div class="precio">
+                        <p>15.50$</p>
+                    </div>
+                    <figure class="basurita">
+                        <a href="">
+                            <img src="./src/trash.png" alt="">
+                        </a>
+                    </figure>
+                </div>
+                <div class="item">
+                    <figure class="imagen-producto">
+                        <img src="./src/1.jpg" alt="no se ve">
+                    </figure>
+                    <div class="nombre">
+                        <div class="nombre-title">
+                            <p>PARCHES SUPERTONIFICANTES PARA CONTORNO DE OJOS</p>
+                        </div>
+                        <div class="descrip-title">
+                            <p>Talla: 100</p>
+                            <p>Marca: Terra verde</p>
+                        </div>
+                    </div>
+                    <div class="cantidad">
+                        <p>
+                            cantidad
+                        </p>
+                        <input class="input-number" type="number">
+                    </div>
+                    <div class="precio">
+                        <p>15.50$</p>
+                    </div>
+                    <figure class="basurita">
+                        <a href="">
+                            <img src="./src/trash.png" alt="">
+                        </a>
+                    </figure>
+                </div>
+                <div class="item">
+                    <figure class="imagen-producto">
+                        <img src="./src/1.jpg" alt="no se ve">
+                    </figure>
+                    <div class="nombre">
+                        <div class="nombre-title">
+                            <p>PARCHES SUPERTONIFICANTES PARA CONTORNO DE OJOS</p>
+                        </div>
+                        <div class="descrip-title">
+                            <p>Talla: 100</p>
+                            <p>Marca: Terra verde</p>
+                        </div>
+                    </div>
+                    <div class="cantidad">
+                        <p>
+                            cantidad
+                        </p>
+                        <input class="input-number" type="number">
+                    </div>
+                    <div class="precio">
+                        <p>15.50$</p>
+                    </div>
+                    <figure class="basurita">
+                        <a href="">
+                            <img src="./src/trash.png" alt="">
+                        </a>
+                    </figure>
+                </div>
+                <div class="item">
+                    <figure class="imagen-producto">
+                        <img src="./src/1.jpg" alt="no se ve">
+                    </figure>
+                    <div class="nombre">
+                        <div class="nombre-title">
+                            <p>PARCHES SUPERTONIFICANTES PARA CONTORNO DE OJOS</p>
+                        </div>
+                        <div class="descrip-title">
+                            <p>Talla: 100</p>
+                            <p>Marca: Terra verde</p>
+                        </div>
+                    </div>
+                    <div class="cantidad">
+                        <p>
+                            cantidad
+                        </p>
+                        <input class="input-number" type="number">
+                    </div>
+                    <div class="precio">
+                        <p>15.50$</p>
+                    </div>
+                    <figure class="basurita">
+                        <a href="">
+                            <img src="./src/trash.png" alt="">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="resumen-pedido">
+            <h2>Resumen de tu pedido:</h2>
+            <div class="subtotal">
+                <p>
+                    SUBTOTAL
+                </p>
+                <p>
+                    48.85$
+                </p>
+            </div>
+            <div class="total">
+                <p>
+                    TOTAL:
+                </p>
+                <p>
+                    48.85$
+                </p>
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>
