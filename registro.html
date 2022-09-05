@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Document</title>
+    <style>
+        :root {
+            --blanco: white;
+            --negro: black;
+            --verde-oscuro: #006414;
+            --verde-medio: #009929;
+            --verde-claro: #5ccb5f;
+            --rojo-oscuro: #e80729;
+            --rojo-claro: #ef2947;
+            --amarillo-quemado: #efa229;
+            --amarillo-claro: #f3b24a;
+            --gris-verde: #f2f8f3;
+            --gris-letas: #889288;
+            --sm: 400;
+            --lg: 700;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Work Sans', sans-serif;
+            height: 100vh;
+        }
+        .pantalla{
+            width: 100%;
+            height:100vh;
+            display: grid;
+            place-items: center;
+        }
+        .ventana{
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            width: 40%;
+        }
+        .inputs{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .inputs input{
+            width: 90%;
+            padding: 0;
+            border: none;
+            margin: 8px;
+            height: 32px;
+            background-color: #dfe2e09c;
+            padding: 5px;
+        }
+        .inputs img{
+            object-fit: cover;
+            width: 17px;
+            height: 17px;
+            padding: 5px;
+        }
+        .fondo{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            background-color: #dfe2e09c;
+        }
+        .fondo .email{
+            height: 30px;
+            width: 30px;
+        }
+        .fondo .candado{
+            height: 30px;
+            width: 30px;
+        }
+        .mrd{
+            margin: none;
+            color: var(--negro);
+        }
+        .recuperar{
+            width: 100%;
+            display: flex;
+            justify-content: right;
+            align-items:flex-end;
+            margin-right: 35px;
+            margin-top: 20px;
+        }
+        .recuperar a{
+            text-decoration: none;
+        }
+        .botones-finales{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 120px;
+        }
+
+        .boton{
+            width:95%;
+            display: flex;
+            justify-content: center;
+        }
+        .boton button{
+            border: none;
+            background-color: var(--verde-medio);
+            padding: 5px;
+            height: 34px;
+            width: 80%;
+            border-radius: 20px;
+            color: var(--blanco);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        .derecho button{
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="pantalla">
+        <div class="ventana">
+            <div class="inputs">
+                <div class="fondo">
+                    <input id="correo" class="mrd" type="email" placeholder="email">
+                </div>
+                <div class="fondo">
+                    <input id="contraseña" class="mrd" type="password" placeholder="contraseña">
+                </div>
+                <div class="fondo">
+                    <input id="contraseña2" class="mrd" type="password" placeholder="repetir contraseña">
+                </div>
+            </div>
+            <div class="botones-finales">
+                <div class="boton">
+                    <button onclick="agregar()">
+                        Registrarse
+                    </button>
+                </div>
+                <div class="boton derecho">
+                    <button >
+                        Registrarse con facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

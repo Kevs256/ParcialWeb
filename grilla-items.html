@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Document</title>
+    <style>
+        :root {
+            --blanco: white;
+            --negro: black;
+            --verde-oscuro: #006414;
+            --verde-medio: #009929;
+            --verde-claro: #5ccb5f;
+            --rojo-oscuro: #e80729;
+            --rojo-claro: #ef2947;
+            --amarillo-quemado: #efa229;
+            --amarillo-claro: #f3b24a;
+            --gris-verde: #f2f8f3;
+            --gris-letas: #889288;
+            --sm: 400;
+            --lg: 700;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Work Sans', sans-serif;
+            height: 100vh;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+            background-color: var(--gris-verde);
+        }
+
+        .img-p {
+            margin: 0;
+        }
+
+        .img-p img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .letters {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+
+        .letters p {
+            margin: 3px;
+        }
+
+        .letters p:nth-child(1) {
+            width: 85%;
+            font-weight: 700;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .letters p:nth-child(2) {
+            font-size: 12px;
+            color: var(--gris-letas);
+            font-weight: 600;
+        }
+
+        .letters p:nth-child(3) {
+            font-size: 12px;
+            color: var(--gris-letas);
+            font-weight: 200;
+        }
+
+        .letters p:nth-child(4) {
+            font-size: 18px;
+            color: var(--verde-claro);
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        /* hasta aca va el css del item */
+        .pantalla {
+            width: 100%;
+            height: auto;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 65px;
+            display: flex;
+        }
+
+        .principal {
+            display: flex;
+            width: 100%;
+        }
+
+        .filtros {
+            width: 25%;
+            height: auto;
+        }
+
+        .site-grilla {
+            width: 78%;
+        }
+
+        .grilla {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-rows: auto auto auto;
+            gap: 5px;
+            padding: 10px;
+            background-color: rgb(242, 247, 238);
+        }
+
+        .icons {
+            position: absolute;
+            background-color: var(--rojo-oscuro);
+            border-radius: 50%;
+            /* intercambiar entre display flex y none para */
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            right: 80%;
+        }
+
+        .icons p {
+            margin: 0;
+            color: var(--blanco);
+            font-weight: 600;
+            font-size: 12px;
+
+        }
+
+        .boton-esconder {
+            width: 100%;
+            /* intercambiar entre display flex y none para */
+            display: none;
+            position: relative;
+            z-index: 100;
+        }
+
+        .add_cesta {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            background-color: var(--blanco);
+        }
+
+        .add_cesta button {
+            width: 80%;
+            background-color: var(--amarillo-quemado);
+            border: none;
+            border-radius: 30px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--blanco);
+            font-weight: 600;
+        }
+
+        .add_cesta button img {
+            margin-right: 15px;
+        }
+
+        .filtros {
+            width: 22%;
+        }
+
+        .filtro1 {
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .precio-visible {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+
+        .precio-visible p {
+            font-size: 22px;
+            margin-top: 0;
+            align-items: center;
+            margin: 0;
+        }
+
+        .range {
+            margin: 0;
+            margin-bottom: 22px;
+            /* cambiar de none a block */
+            display: none;
+        }
+
+        .range-input {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 0;
+            border-radius: 25px;
+            -webkit-appearance: none;
+            background-color: #eff5e4;
+        }
+
+        .range-input::-moz-range-thumb {
+            background-color: var(--verde-claro);
+            border-radius: 30%;
+
+        }
+
+        .range-input::webkit-slider-runnable-track {
+            color: var(--verde-claro);
+        }
+
+        .precio-esconder {
+            width: 100%;
+            /* de none a block */
+            display: none;
+        }
+
+        .input-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .input-number input {
+            width: 75%;
+            margin-bottom: 18px;
+        }
+
+        .desde {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .desde p {
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .desde input {
+            height: 34px;
+            background-color: #e1ebe1;
+            border: none;
+            border-radius: 4px;
+
+        }
+
+        .boton {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .boton .boton-filtro {
+            border: none;
+            width: 100%;
+            background-color: var(--verde-claro);
+            height: 38px;
+            border-radius: 25px;
+            color: var(--blanco);
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .iconos-favorito {
+            z-index: 102;
+            /* aca agregar el displat flex para poder verlo */
+            display: none;
+        }
+
+        .iconos-favorito img {
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+            position: absolute;
+            right: 8%;
+            bottom: 90%;
+        }
+
+        .buscador {
+            width: 65%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .buscador input {
+            width: 100%;
+            height: 60%;
+            margin: 5px;
+            border: solid 1px var(--verde-claro);
+            border-radius: 30px;
+            padding-left: 25px;
+        }
+
+        .buscador img {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 95%;
+        }
+
+        .icons-2 {
+            width: 35%;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .icons-2 a {
+            width: 33.3%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px;
+            text-decoration: none;
+            color: var(--negro);
+        }
+
+        .icon-trio {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icon-trio img {
+            width: 25px;
+            height: 25px;
+            object-fit: cover;
+        }
+
+        .icon-trio p {
+            margin: 0;
+            width: 100%;
+        }
+
+        .paginador {
+            display: flex;
+            justify-content: center;
+            margin: 40px;
+        }
+
+        .paginador a {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--negro);
+        }
+
+        .flecha img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .flecha p {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            text-decoration: none;
+        }
+
+        #numero {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .atras img {
+            transform: rotate(90deg);
+        }
+
+        .adelante img {
+            transform: rotate(-90deg);
+        }
+
+        .item:hover .boton-esconder{
+            display: flex;
+            background-color: var(--blanco);
+        }
+        .item:hover .iconos-favorito{
+            display: flex;
+        }
+        .item:hover{
+            background-color: var(--blanco);
+        }
+        .botonkk{
+            border: none;
+            background-color:var(--blanco);
+            margin: none;
+        }
+        .botonkk img{
+            height: none;
+            cursor: pointer;
+        }
+
+        .filtro1:hover .range{
+            display: block;
+        }
+
+        .filtro1:hover .precio-esconder{
+            display: block;
+        }
+    </style>
+</head>
+
+<body onload="cargar_objetos(pagina)">
+    <div class="pantalla">
+        <nav class="navbar">
+            <div class="buscador">
+                <input type="text" placeholder="¿Qué producto estás buscando...?" list="articulos">
+                <datalist id="articulos">
+                    <!-- <option>PNG</option> -->
+                  </datalist>
+                <img src="./src/lupa.png" alt="">
+            </div>
+            <div class="icons-2">
+                <a href="">
+                    <div class="icon-trio">
+                        <img src="./src/corazon-bar.png" alt="">
+                        <p>Mis Favoritos</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="icon-trio">
+                        <img src="./src/account.png" alt="">
+                        <p>Mi cuenta</p>
+                    </div>
+                </a>
+                <a href="carro.html">
+                    <div class="icon-trio">
+                        <img src="./src/carrito.png" alt="">
+                        <p>Mi carrito</p>
+                    </div>
+                </a>
+            </div>
+        </nav>
+        <div class="principal">
+            <section class="filtros">
+                <div class="filtro1">
+                    <div class="precio-visible">
+                        <p>Precio</p>
+                        <button class="botonkk">
+                            <img src="./src/menos.png" alt="">
+                        </button>
+                    </div>
+                    <div class="range">
+                        <input type="range" min="0" max="60" class="range-input">
+                        <input type="range" min="0" max="60" class="range-input">
+                    </div>
+                    <div class="precio-esconder">
+                        <div class="input-number">
+                            <div class="desde">
+                                <p>Desde</p>
+                                <input id="minimo" type="number" placeholder="1">
+                            </div>
+                            <div class="desde">
+                                <p>Hasta</p>
+                                <input id="maximo" type="number" placeholder="100">
+                            </div>
+                        </div>
+                        <div class="boton">
+                            <button class="boton-filtro">
+                                Filtrar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="site-grilla">
+                <div class="grilla" id="grilla">
+                    <!-- <div class="item">
+                        <div class="iconos-favorito">
+                            <img src="./src/corazon.png" alt="">
+                        </div>
+                        <figure class="img-p">
+                            <img src="./src/15.jpg" alt="">
+                        </figure>
+                        <div class="icons">
+                            <p>
+                                -50%
+                            </p>
+                            <p>
+                                2*und
+                            </p>
+                        </div>
+                        <div class="letters">
+                            <p>
+                                Parches iluminadores aaaaaaaaaaaaaaaaaaaaa
+                            </p>
+                            <p>
+                                60 uds
+                            </p>
+                            <p>
+                                Natura siberica
+                            </p>
+                            <p>
+                                15,50$
+                            </p>
+                        </div>
+                        <div class="boton-esconder">
+                            <div class="add_cesta">
+                                <button class="">
+                                    <img src="./src/cesta.png" alt="">
+                                    Añadir a la cesta
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- aca debemos insertar los hijos item -->
+                </div>
+            </section>
+        </div>
+        <div class="paginador" id="paginador">
+            <!-- <a href="" id="atras">
+                <div class="flecha atras">
+                    <img src="./src/arrow.png" alt="">
+                </div>
+            </a>
+
+            <a href="" id="numero">
+                <div class="flecha">
+                    <p id="numero-pagina">
+                        1
+                    </p>
+                </div>
+            </a>
+
+            <a href="" id="siguiente" >
+                <div class="flecha adelante">
+                    <img src="./src/arrow.png" alt="">
+                </div>
+            </a> -->
+        </div>
+    </div>
+</body>
+
+
+</html>
